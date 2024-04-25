@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>reddit r/memes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">  
+    <style>
+        body {
+            background-color: #000000;
+            background-repeat: no-repeat;
+            background-position: top-left;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ffffff;
+            background-color: #000000;
+            margin-top: 20px;
+        }
+
+        p {
+            text-align: center;
+            font-family: Georgia, sans-serif;
+            font-size: 24px;
+            color: #ffffff;
+            background-color: #000000;
+            margin: 10px 0;
+        }
+
+        #countdown {
+            font-size: 36px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        @media screen and (min-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+
+            p {
+                font-size: 32px;
+            }
+
+            #countdown {
+                font-size: 48px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Reddit Channel Crawler</h1>
+    <p>This will refresh in <span id="countdown">30</span> seconds</p>
+    <p><img src="{{meme_pic}}"></p>
+    <p>Current Subreddit r/{{subreddit}}</p>
+
+    <script>
+        var countdown = 30;
+        var timer = setInterval(function() {
+            countdown--;
+            document.getElementById('countdown').textContent = countdown;
+            if (countdown <= 0) {
+                clearInterval(timer);
+                // Redirect the page after countdown
+                setTimeout(function() {
+                    window.location.href = 'http://127.0.0.1:5006/';
+                }, 1000); // Redirect after 1 second
+            }
+        }, 1000);
+    </script>
+</body> 
+</html>
