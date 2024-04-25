@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>reddit r/memes</title>
+    <title>Reddit r/?</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">  
     <style>
         body {
@@ -13,23 +13,14 @@
             font-family: Arial, sans-serif;
         }
 
-        h1 {
+        .container {
             text-align: center;
-            color: #ffffff;
-            background-color: #000000;
             margin-top: 20px;
-        }
-
-        p {
-            text-align: center;
-            font-family: Georgia, sans-serif;
-            font-size: 24px;
             color: #ffffff;
             background-color: #000000;
-            margin: 10px 0;
         }
 
-        #countdown {
+        .countdown {
             font-size: 36px;
         }
 
@@ -41,36 +32,34 @@
         }
 
         @media screen and (min-width: 768px) {
-            h1 {
+            .container {
                 font-size: 36px;
             }
 
-            p {
-                font-size: 32px;
-            }
-
-            #countdown {
+            .countdown {
                 font-size: 48px;
             }
         }
     </style>
 </head>
 <body>
-    <h1>Reddit Channel Crawler</h1>
-    <p>This will refresh in <span id="countdown">30</span> seconds</p>
-    <p><img src="{{meme_pic}}"></p>
-    <p>Current Subreddit r/{{subreddit}}</p>
+    <div class="container">
+        <h1>Reddit Channel Crawler</h1>
+        <div>This will refresh in <span class="countdown">30</span> seconds</div>
+        <div><img src="{{meme_pic}}"></div>
+        <div>Current Subreddit r/{{subreddit}}</div>
+    </div>
 
     <script>
         var countdown = 30;
         var timer = setInterval(function() {
             countdown--;
-            document.getElementById('countdown').textContent = countdown;
+            document.querySelector('.countdown').textContent = countdown;
             if (countdown <= 0) {
                 clearInterval(timer);
                 // Redirect the page after countdown
                 setTimeout(function() {
-                    window.location.href = 'http://127.0.0.1:5006/';
+                    window.location.href = '/';
                 }, 1000); // Redirect after 1 second
             }
         }, 1000);
